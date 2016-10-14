@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+<link rel="stylesheet" media="all" type="text/css" href="/static/xxx.css" />
+<!-- ※デフォルトのスタイル（style.css） -->
+<link rel="stylesheet" media="all" type="text/css" href="/static/smart.css" />
+<!-- ※スマートフォン用のスタイル（smart.css） -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/suggesting.js"></script>
+<!--<script type="text/javascript" src="http://www.enjoyxstudy.com/javascript/suggest/suggest.js"></script>-->
+    <title>駅検索プログラム</title>
+<style>
+    .ui-helper-hidden-accessible{display:none!important;} /*入力候補JS余計なやつ消しておく*/
+    ul{background-color:white !important; max-width:300px; 	overflow: auto !important; max-height:200px; }
+    li{list-style-type: none; text-align:left;}
+    #btn {
+    text-decoration: none;
+    text-align: center;
+    font-size: 200%;
+    line-height:9.5px;
+    display: block;
+    color:#5f7396;
+    width: 30px;
+	height: 19px;
+	background: #EEE;
+	border: 1px solid #DDD;
+	border-radius: 35px;
+	-moz-border-radius: 35px;
+	-webkit-border-radius: 35px;
+	padding: 21px 10px 10px;
+    margin: 10px auto;
+}
+
+</style>
+</head>
+<body>
+<h1><font face="HGS創英角ｺﾞｼｯｸ" color="#5f7396">駅検索</font> <img src="/static/train.png" height="33px" class="mobileHidden"></h1>
+	<br>
+	
+	<hr color="#5d5d5d" width="">
+
+{% if station %}
+    <p>結果</p>
+    {% for stations in station %}
+    <p>{{ stations }}</p>
+    {% endfor %}
+{% endif %}
+<br><br>
+
+<div class="m1">
+<form id="form" method="POST" action="/result">
+<br>
+
+<font color="5f7396">駅1</font>
+<input name="line1" class="aocomp" type="text" autocomplete="off" placeholder="路線名を入力してください" required><br class="br-sp">
+
+<font color="5f7396">駅2</font>
+<input name="line2" class="aocomp" type="text" autocomplete="off" placeholder="路線名を入力してください" required><br class="br-sp">
+
+<font color="5f7396">駅3</font>
+<input name="line3" class="aocomp" type="text" autocomplete="off" placeholder="路線名を入力してください"><br class="br-sp">
+<div id="add"></div>
+    <a id="btn" href="#">+</a>
+<!--<br><br>-->
+<div Align="right"><input type="submit" value="　検索　"></div>
+    <br>
+    <br>
+</form>
+</div>
+</body>
+</html>
